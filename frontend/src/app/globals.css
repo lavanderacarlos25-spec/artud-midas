@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  --background: #09090b;
+  --foreground: #fafaf9;
+  --muted: #a8a29e;
+  --muted-foreground: #78716c;
+  --border: #27241f;
+  --surface: #12100e;
+  --surface-elevated: #1a1814;
+  --gold: #d4af37;
+  --gold-light: #f0c14d;
+  --gold-muted: #8a7020;
+  --accent: #d4af37;
+  --ring: rgba(212, 175, 55, 0.4);
+  --sidebar-width: 16rem;
+  --sidebar-collapsed-width: 4.5rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-muted: var(--gold-muted);
+  --color-accent: var(--accent);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.25);
+  color: var(--foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
