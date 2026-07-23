@@ -35,6 +35,7 @@ Open [http://localhost:3000](http://localhost:3000).
 ```
 src/
 ├── app/              # Routes, layouts, API routes, manifest
+├── surfaces/         # Three-surface contracts (operations / portal / consumer)
 ├── components/
 │   ├── layout/       # Shell and page structure
 │   ├── pwa/          # Service worker & install UI (Phase 2)
@@ -44,6 +45,8 @@ src/
 ├── lib/              # Utilities and env helpers
 └── types/            # Shared TypeScript types
 ```
+
+Product architecture (Operations · Portal · Consumer) is documented in [`ARCHITECTURE.md`](./ARCHITECTURE.md).
 
 ## PWA Status
 
