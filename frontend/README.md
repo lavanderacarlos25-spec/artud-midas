@@ -38,6 +38,8 @@ src/
 ├── surfaces/         # Three-surface contracts (operations / portal / consumer)
 ├── components/
 │   ├── layout/       # Shell and page structure
+│   ├── operations/   # Internal Operations Center (Sprint 5)
+│   ├── intelligence/ # Reusable BI primitives (Sprint 6)
 │   ├── pwa/          # Service worker & install UI (Phase 2)
 │   └── ui/           # Reusable UI primitives
 ├── config/           # App-wide configuration
@@ -47,6 +49,14 @@ src/
 ```
 
 Product architecture (Operations · Portal · Consumer) is documented in [`ARCHITECTURE.md`](./ARCHITECTURE.md).
+
+### Recent sprints (frontend)
+
+| Sprint | Focus |
+|--------|--------|
+| 4 | Three-surface architecture (`surfaces/`, `ARCHITECTURE.md`) |
+| 5 | Operations Center hub on `/` (`components/operations`) |
+| 6 | Business Intelligence 360° on business detail (`components/intelligence`, `config/business-360.ts`) |
 
 ## PWA Status
 

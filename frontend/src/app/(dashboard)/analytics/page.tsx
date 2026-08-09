@@ -1,11 +1,5 @@
-import { PlaceholderPage } from "@/components/dashboard/PlaceholderPage";
+import { AnalyticsPageView } from "@/components/analytics/AnalyticsPageView";
 
 export default function AnalyticsPage() {
-  return (
-    <PlaceholderPage
-      title="Analytics"
-      description="Visualize foot traffic, spend patterns, and campaign performance in real time."
-      icon="chart"
-    />
-  );
+  return <AnalyticsPageView />;
 }

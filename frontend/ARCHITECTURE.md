@@ -267,3 +267,19 @@ El hub interno del equipo Artud Midas se monta en la ruta existente `/`
 Bloques del hub: KPIs de red, prioridades del día, empresas que necesitan
 atención, alertas internas, cola de tareas, actividad del equipo,
 recomendaciones IA (simuladas), estado de campañas y objetivos internos.
+
+## 11. Sprint 6 — Business Intelligence 360°
+
+La ficha de empresa (`BusinessDetail`) se amplía a un panel ejecutivo 360°
+sin tocar CRUD, Dashboard/Ops hub, navegación ni autenticación.
+
+- Tipos: `types/business-360.ts`
+- Demo: `config/business-360.ts` → `getBusiness360Bundle(business)`
+- Primitivas reutilizables: `components/intelligence/*`
+  (`IntelligencePanel`, `MetricTiles`, `ScoreGauge`, `QuickActionRow`,
+  `IntelligenceTimeline`, `DomainMetricsCard`)
+- Bloques nuevos en ficha: resumen ejecutivo 360, Business Score, Clientes,
+  Eventos, Campañas, RRPP, Fidelización, Ventas, Alertas, Quick Actions,
+  Timeline 360
+
+Todas las secciones previas de la ficha se mantienen.

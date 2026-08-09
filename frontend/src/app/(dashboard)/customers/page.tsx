@@ -1,11 +1,5 @@
-import { PlaceholderPage } from "@/components/dashboard/PlaceholderPage";
+import { CustomersManagement } from "@/components/customers/CustomersManagement";
 
 export default function CustomersPage() {
-  return (
-    <PlaceholderPage
-      title="Customers"
-      description="Manage guest profiles, segments, and engagement history across your venue network."
-      icon="users"
-    />
-  );
+  return <CustomersManagement />;
 }

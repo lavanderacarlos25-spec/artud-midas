@@ -1,11 +1,5 @@
-import { PlaceholderPage } from "@/components/dashboard/PlaceholderPage";
+import { BusinessesManagement } from "@/components/businesses/BusinessesManagement";
 
 export default function BusinessesPage() {
-  return (
-    <PlaceholderPage
-      title="Businesses"
-      description="Onboard venues, manage partnerships, and oversee multi-location operations."
-      icon="building"
-    />
-  );
+  return <BusinessesManagement />;
 }

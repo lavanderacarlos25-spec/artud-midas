@@ -60,12 +60,71 @@ export type {
 } from "./operations-center";
 
 export type {
+  Business360Bundle,
+  Business360QuickAction,
+  Business360TimelineItem,
+  BusinessAlertItem,
+  BusinessExecutiveSnapshot,
+  BusinessOperationalStatus,
+  BusinessScoreBand,
+  BusinessScoreSnapshot,
+  BusinessTrendDirection,
+  MetricTile,
+  MetricTone,
+} from "./business-360";
+
+export type {
+  ExecutiveActivityItem,
+  ExecutiveAiRecommendation,
+  ExecutiveAlert,
+  ExecutiveAlertTone,
+  ExecutiveCommandBundle,
+  ExecutiveGoal,
+  ExecutiveGoalHorizon,
+  ExecutiveKpi,
+  ExecutiveQuickAction,
+  ExecutiveUpcomingEvent,
+  MidasScore,
+  MidasScoreStatus,
+} from "./executive-command";
+
+export type {
+  AnalyticsChartPoint,
+  AnalyticsChartsBundle,
+  AnalyticsComparisonItem,
+  AnalyticsDemoBundle,
+  AnalyticsFilterOption,
+  AnalyticsFiltersState,
+  AnalyticsKpi,
+  AnalyticsNamedValue,
+  AnalyticsPerformanceItem,
+  AnalyticsPeriod,
+  AnalyticsPredictionItem,
+  AnalyticsTrendDirection,
+  AnalyticsTrendItem,
+} from "./analytics";
+
+export type {
   Customer,
   CustomerFilter,
+  CustomerFrequency,
+  CustomerListFilters,
   CustomerMetric,
+  CustomerRiskLevel,
   CustomerStatus,
   LoyaltyLevel,
 } from "./customer";
+
+export type {
+  Customer360Bundle,
+  CustomerCampaignItem,
+  CustomerEventItem,
+  CustomerIntelligence,
+  CustomerMetricTile,
+  CustomerPurchaseItem,
+  CustomerRewardItem,
+  CustomerTimelineItem,
+} from "./customer-crm";
 
 export type {
   LoyaltyLevelFilter,

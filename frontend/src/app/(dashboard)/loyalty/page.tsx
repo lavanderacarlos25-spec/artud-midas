@@ -1,11 +1,5 @@
-import { PlaceholderPage } from "@/components/dashboard/PlaceholderPage";
+import { LoyaltyManagement } from "@/components/loyalty/LoyaltyManagement";
 
 export default function LoyaltyPage() {
-  return (
-    <PlaceholderPage
-      title="Loyalty"
-      description="Design reward tiers, run campaigns, and track member retention programs."
-      icon="award"
-    />
-  );
+  return <LoyaltyManagement />;
 }
