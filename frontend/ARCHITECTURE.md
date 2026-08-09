@@ -283,3 +283,28 @@ sin tocar CRUD, Dashboard/Ops hub, navegación ni autenticación.
   Timeline 360
 
 Todas las secciones previas de la ficha se mantienen.
+
+## 12. Sprint 5 — Bloque 1: corrección de superficies y rutas
+
+Decisión definitiva del Director General sobre las tres superficies:
+
+| Superficie | Ruta | Route group | Audiencia |
+|---|---|---|---|
+| Operations Center | `/` | `(dashboard)` | admin, staff |
+| Executive Command Center | `/portal` | `(portal)` | business_owner |
+| Client App | `/app` (reservado, sin implementar) | `(consumer)` | customer (futuro) |
+
+Cambios de este bloque:
+
+- `app/(dashboard)/page.tsx` vuelve a montar `OperationsCenter` (queda
+  como estaba documentado en la sección 10; el desvío temporal hacia
+  `ExecutiveCommandCenter` que hubo en el WIP quedó revertido).
+- Nueva ruta `app/(portal)/page.tsx` monta `ExecutiveCommandCenter`
+  (mismo componente, sin cambios de contenido) con un layout de paso
+  (`app/(portal)/layout.tsx`), sin shell propio todavía.
+- `surfaces/index.ts` y `surfaces/portal/*` actualizados de `planned` a
+  `active` para reflejar la ruta real.
+- **Fuera de alcance de este bloque** (pendiente para bloques
+  posteriores): shell propio del Portal, segmentación por rol en
+  `middleware.ts`, consolidación del dominio Business, Client App,
+  `ActionItem`/`serviceModel`/Impacto/Finanzas.

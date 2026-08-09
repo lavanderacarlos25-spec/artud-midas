@@ -49,7 +49,7 @@ export const artudSurfaces: Record<ArtudSurface, ArtudSurfaceDefinition> = {
       "Confianza y resultados: KPIs, objetivos, ROI, acciones de Artud Midas, informes y mensajería.",
     routeGroup: "(portal)",
     plannedPathPrefix: "/portal",
-    status: "planned",
+    status: "active",
   },
   consumer: {
     id: "consumer",
@@ -63,5 +63,5 @@ export const artudSurfaces: Record<ArtudSurface, ArtudSurfaceDefinition> = {
   },
 };
 
-/** Everything built so far belongs to the Operations surface. */
+/** Default/primary surface. Portal Empresarial is also live at `/portal`. */
 export const CURRENT_PRODUCT_SURFACE: ArtudSurface = "operations";

@@ -1,9 +1,11 @@
-import { ExecutiveCommandCenter } from "@/components/executive/ExecutiveCommandCenter";
+import { OperationsCenter } from "@/components/operations/OperationsCenter";
 
 /**
- * Dashboard home — Centro de Mando Ejecutivo (empresario).
- * Operations Center remains available as a module under components/operations.
+ * Dashboard home = Centro de Operaciones (internal surface).
+ * Audiencia: admin y staff. El Executive Command Center (business_owner)
+ * vive en `(portal)` -> `/portal`. Navigation and other module routes
+ * remain unchanged.
  */
 export default function DashboardPage() {
-  return <ExecutiveCommandCenter />;
+  return <OperationsCenter />;
 }
