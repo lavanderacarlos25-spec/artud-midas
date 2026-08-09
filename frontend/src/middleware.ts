@@ -8,6 +8,10 @@ import {
   REFRESH_TOKEN_COOKIE,
 } from "@/lib/auth/constants";
 import { verifyToken } from "@/lib/auth/jwt";
+import { canAccessOperations, canAccessPortal, getSurfaceHomeForRole } from "@/lib/auth/roles";
+import type { SessionPayload } from "@/types/auth";
+
+const PORTAL_PATH_PREFIX = "/portal";
 
 function isAuthRoute(pathname: string): boolean {
   return PUBLIC_ROUTES.includes(pathname as (typeof PUBLIC_ROUTES)[number]);
@@ -26,13 +30,17 @@ function isStaticAsset(pathname: string): boolean {
   );
 }
 
-async function hasValidSession(request: NextRequest): Promise<boolean> {
+function isPortalRoute(pathname: string): boolean {
+  return pathname === PORTAL_PATH_PREFIX || pathname.startsWith(`${PORTAL_PATH_PREFIX}/`);
+}
+
+async function getSessionPayload(request: NextRequest): Promise<SessionPayload | null> {
   const accessToken = request.cookies.get(ACCESS_TOKEN_COOKIE)?.value;
 
   if (accessToken) {
     const payload = await verifyToken(accessToken);
     if (payload?.type === "access") {
-      return true;
+      return payload;
     }
   }
 
@@ -41,11 +49,11 @@ async function hasValidSession(request: NextRequest): Promise<boolean> {
   if (refreshToken) {
     const payload = await verifyToken(refreshToken);
     if (payload?.type === "refresh") {
-      return true;
+      return payload;
     }
   }
 
-  return false;
+  return null;
 }
 
 export async function middleware(request: NextRequest) {
@@ -55,19 +63,29 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const authenticated = await hasValidSession(request);
+  const session = await getSessionPayload(request);
 
   if (isAuthRoute(pathname)) {
-    if (authenticated) {
-      return NextResponse.redirect(new URL("/", request.url));
+    if (session) {
+      return NextResponse.redirect(new URL(getSurfaceHomeForRole(session), request.url));
     }
     return NextResponse.next();
   }
 
-  if (!authenticated) {
+  if (!session) {
     const loginUrl = new URL(AUTH_ROUTES.login, request.url);
     loginUrl.searchParams.set("callbackUrl", pathname);
     return NextResponse.redirect(loginUrl);
+  }
+
+  // Gating por superficie (ARCHITECTURE.md §4.4 — Roles -> superficies):
+  // admin/staff -> Operations (`/`); business_owner -> Portal (`/portal`).
+  if (isPortalRoute(pathname)) {
+    if (!canAccessPortal(session)) {
+      return NextResponse.redirect(new URL(getSurfaceHomeForRole(session), request.url));
+    }
+  } else if (!canAccessOperations(session)) {
+    return NextResponse.redirect(new URL(getSurfaceHomeForRole(session), request.url));
   }
 
   return NextResponse.next();
